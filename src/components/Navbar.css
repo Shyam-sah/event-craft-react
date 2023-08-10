@@ -1,0 +1,12 @@
+.navbar {
+    background-color: blue; /* Replace 'blue' with your desired color */
+    height: 100px; /* Set your desired height */
+    display: left;
+    align-items: center;
+  }
+  
+  .center-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
