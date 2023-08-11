@@ -17,8 +17,6 @@ import Success from "./components/Success";
 import Cancel from "./components/Cancel";
 
 
-
-
 const App = () => {
   const myStyle = {
     backgroundImage: `url(${themeImage})`,

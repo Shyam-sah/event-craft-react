@@ -7,28 +7,20 @@ import { ApolloProvider } from '@apollo/client';
 import { Provider } from "react-redux";
 import { store } from "./components/app/store";
 import { GoogleOAuthProvider } from '@react-oauth/google';
-import { ApolloClient, InMemoryCache } from '@apollo/client';
+import client from './components/ApolloClient'
 
-const client = new ApolloClient({
-  uri: 'http://localhost:8081/query',
-  cache: new InMemoryCache(),
-});
-
-
+const clientId = process.env.REACT_APP_CLIENT_ID;
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
 
   <React.StrictMode>
-     <GoogleOAuthProvider clientId="98861268976-nr3dihiqmcmsebllmd50t0g6ahbog9pd.apps.googleusercontent.com">
-
-    <Provider store={store}>
-      {/* <CreateEvent /> */}
-
-      <ApolloProvider client={client}>
-        <App />
-      </ApolloProvider>
-    </Provider>
+    <GoogleOAuthProvider clientId={clientId}>
+      <Provider store={store}>
+        <ApolloProvider client={client}>
+          <App />
+        </ApolloProvider>
+      </Provider>
     </GoogleOAuthProvider>
 
   </React.StrictMode>
